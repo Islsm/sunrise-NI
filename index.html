@@ -54,27 +54,27 @@
         <div class="grid grid-cols-2 gap-4">
             <div onclick="openModal('admissionModal')" class="bg-white p-6 rounded-xl shadow-sm border border-green-100 flex flex-col items-center cursor-pointer active:scale-95 transition text-center">
                 <i class="fas fa-user-plus text-green-600 text-3xl mb-2"></i>
-                <span class="text-gray-700 font-bold text-xs">অনলাইন ভর্তি</span>
+                <span class="text-gray-700 font-bold text-xs uppercase">অনলাইন ভর্তি</span>
             </div>
             <div onclick="openModal('resultModal')" class="bg-white p-6 rounded-xl shadow-sm border border-green-100 flex flex-col items-center cursor-pointer active:scale-95 transition text-center">
                 <i class="fas fa-file-invoice text-green-600 text-3xl mb-2"></i>
-                <span class="text-gray-700 font-bold text-xs">ফলাফল</span>
+                <span class="text-gray-700 font-bold text-xs uppercase">ফলাফল</span>
             </div>
             <div class="bg-white p-6 rounded-xl shadow-sm border border-green-100 flex flex-col items-center text-center">
                 <i class="fas fa-calendar-alt text-green-600 text-3xl mb-2"></i>
-                <span class="text-gray-700 font-bold text-xs">ক্লাস রুটিন</span>
+                <span class="text-gray-700 font-bold text-xs uppercase">ক্লাস রুটিন</span>
             </div>
             <div class="bg-white p-6 rounded-xl shadow-sm border border-green-100 flex flex-col items-center text-center">
                 <i class="fas fa-book text-green-600 text-3xl mb-2"></i>
-                <span class="text-gray-700 font-bold text-xs">সিলেবাস</span>
+                <span class="text-gray-700 font-bold text-xs uppercase">সিলেবাস</span>
             </div>
             <div class="bg-white p-6 rounded-xl shadow-sm border border-green-100 flex flex-col items-center text-center">
                 <i class="fas fa-bullhorn text-green-600 text-3xl mb-2"></i>
-                <span class="text-gray-700 font-bold text-xs">নোটিশ</span>
+                <span class="text-gray-700 font-bold text-xs uppercase">নোটিশ</span>
             </div>
             <div class="bg-white p-6 rounded-xl shadow-sm border border-green-100 flex flex-col items-center text-center">
                 <i class="fas fa-users text-green-600 text-3xl mb-2"></i>
-                <span class="text-gray-700 font-bold text-xs">শিক্ষকমণ্ডলী</span>
+                <span class="text-gray-700 font-bold text-xs uppercase">শিক্ষকমণ্ডলী</span>
             </div>
         </div>
     </main>
@@ -90,7 +90,7 @@
             ০১৭৩৫-৫২৪০৮৩
         </p>
         <div class="mt-8 border-t border-green-800 pt-4 text-[10px] text-green-300 uppercase tracking-widest">
-            © 2024 SUNRISE NURSING INSTITUTE. ALL RIGHTS RESERVED.
+            © 2026 SUNRISE NURSING INSTITUTE. DEVELOP BY EMON ISLAM.
         </div>
     </footer>
 
@@ -98,15 +98,17 @@
         <div class="bg-white w-full max-w-sm rounded-lg overflow-hidden relative p-6">
             <button onclick="closeModal('admissionModal')" class="absolute top-2 right-4 text-2xl font-bold text-red-600">&times;</button>
             <h3 class="text-green-700 font-bold text-lg mb-4 text-center border-b pb-2">অনলাইন ভর্তি ফরম</h3>
-            <form class="space-y-3">
-                <input type="text" placeholder="শিক্ষার্থীর নাম" class="w-full p-2 border rounded-md text-sm outline-none focus:border-green-500">
-                <input type="number" placeholder="মোবাইল নম্বর" class="w-full p-2 border rounded-md text-sm outline-none focus:border-green-500">
-                <select class="w-full p-2 border rounded-md text-sm text-gray-600 outline-none focus:border-green-500">
-                    <option disabled selected>কোর্স নির্বাচন করুন</option>
-                    <option>ডিপ্লোমা ইন নার্সিং</option>
-                    <option>বিএসসি ইন নার্সিং</option>
+            
+            <form name="admission" method="POST" data-netlify="true" class="space-y-3">
+                <input type="hidden" name="form-name" value="admission" />
+                <input type="text" name="student_name" placeholder="শিক্ষার্থীর নাম" required class="w-full p-2 border rounded-md text-sm outline-none focus:border-green-500">
+                <input type="number" name="mobile_number" placeholder="মোবাইল নম্বর" required class="w-full p-2 border rounded-md text-sm outline-none focus:border-green-500">
+                <select name="course" required class="w-full p-2 border rounded-md text-sm text-gray-600 outline-none focus:border-green-500">
+                    <option value="" disabled selected>কোর্স নির্বাচন করুন</option>
+                    <option value="Diploma in Nursing">ডিপ্লোমা ইন নার্সিং</option>
+                    <option value="BSc in Nursing">বিএসসি ইন নার্সিং</option>
                 </select>
-                <button type="button" onclick="alert('আপনার আবেদনটি গ্রহণ করা হয়েছে!')" class="w-full bg-green-600 text-white py-2 rounded-md font-bold">আবেদন জমা দিন</button>
+                <button type="submit" class="w-full bg-green-600 text-white py-2 rounded-md font-bold hover:bg-green-700 transition">আবেদন জমা দিন</button>
             </form>
         </div>
     </div>
