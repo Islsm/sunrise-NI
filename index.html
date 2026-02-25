@@ -90,7 +90,7 @@
             ০১৭৩৫-৫২৪০৮৩
         </p>
         <div class="mt-8 border-t border-green-800 pt-4 text-[10px] text-green-300 uppercase tracking-widest">
-            © 2026 SUNRISE NURSING INSTITUTE. DEVELOP BY EMON ISLAM.
+            © 2024 SUNRISE NURSING INSTITUTE. ALL RIGHTS RESERVED.
         </div>
     </footer>
 
@@ -98,7 +98,6 @@
         <div class="bg-white w-full max-w-sm rounded-lg overflow-hidden relative p-6">
             <button onclick="closeModal('admissionModal')" class="absolute top-2 right-4 text-2xl font-bold text-red-600">&times;</button>
             <h3 class="text-green-700 font-bold text-lg mb-4 text-center border-b pb-2">অনলাইন ভর্তি ফরম</h3>
-            
             <form name="admission" method="POST" data-netlify="true" class="space-y-3">
                 <input type="hidden" name="form-name" value="admission" />
                 <input type="text" name="student_name" placeholder="শিক্ষার্থীর নাম" required class="w-full p-2 border rounded-md text-sm outline-none focus:border-green-500">
@@ -118,8 +117,17 @@
             <button onclick="closeModal('resultModal')" class="absolute top-2 right-4 text-2xl font-bold text-red-600">&times;</button>
             <h3 class="text-green-700 font-bold text-lg mb-4 text-center border-b pb-2">ফলাফল অনুসন্ধান</h3>
             <form class="space-y-3">
-                <input type="number" placeholder="রোল নম্বর লিখুন" class="w-full p-2 border rounded-md text-sm outline-none focus:border-green-500">
-                <button type="button" onclick="alert('ফলাফল এখনো প্রকাশ করা হয়নি')" class="w-full bg-blue-600 text-white py-2 rounded-md font-bold">ফলাফল দেখুন</button>
+                <input type="number" placeholder="রোল নম্বর লিখুন" required class="w-full p-2 border rounded-md text-sm outline-none focus:border-green-500">
+                
+                <select required class="w-full p-2 border rounded-md text-sm text-gray-600 outline-none focus:border-green-500">
+                    <option value="" disabled selected>শিক্ষাবর্ষ নির্বাচন করুন</option>
+                    <option value="2021-22">২০২১-২২</option>
+                    <option value="2022-23">২০২২-২৩</option>
+                    <option value="2023-24">২০২৩-২৪</option>
+                    <option value="2024-25">২০২৪-২৫</option>
+                </select>
+
+                <button type="button" onclick="alert('আপনার রোল বা শিক্ষাবর্ষ সঠিক নয় অথবা ফলাফল এখনো প্রকাশ করা হয়নি')" class="w-full bg-blue-600 text-white py-2 rounded-md font-bold hover:bg-blue-700 transition">ফলাফল দেখুন</button>
             </form>
         </div>
     </div>
@@ -134,4 +142,4 @@
         function closeModal(id) { document.getElementById(id).classList.remove('show'); }
     </script>
 </body>
-</html>
+                        </html>
