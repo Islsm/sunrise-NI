@@ -13,8 +13,7 @@
         #sidebar.open { transform: translateX(0); }
         .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 1000; align-items: center; justify-content: center; padding: 20px; }
         .modal.show { display: flex; }
-        .gallery-img { width: 100%; h-32; object-cover; border-radius: 8px; cursor: pointer; transition: 0.3s; }
-        .gallery-img:hover { transform: scale(1.05); }
+        .gallery-img { width: 100%; height: 80px; object-fit: cover; border-radius: 8px; border: 1px solid #ddd; }
     </style>
 </head>
 <body>
@@ -24,138 +23,150 @@
             <img src="https://image2url.com/r2/default/images/1772025076092-d9a4b77c-81a1-4224-8742-ce1533712806.jpg" class="h-10 w-10 rounded-full">
             <div>
                 <h1 class="text-green-700 font-bold text-sm uppercase leading-tight">SUNRISE NURSING INSTITUTE</h1>
-                <p class="text-[10px] text-gray-500 font-bold uppercase">DINAJPUR</p>
+                <p class="text-[10px] text-gray-500 font-bold uppercase tracking-wider">DINAJPUR</p>
             </div>
         </div>
-        <button onclick="toggleMenu()" class="text-green-700 text-2xl focus:outline-none"><i class="fas fa-bars"></i></button>
+        <button onclick="toggleMenu()" class="text-green-700 text-2xl"><i class="fas fa-bars"></i></button>
     </header>
 
-    <div id="sidebar" class="fixed top-0 right-0 h-full w-64 bg-green-800 text-white z-[1100] shadow-2xl p-6">
+    <div id="sidebar" class="fixed top-0 right-0 h-full w-64 bg-green-900 text-white z-[1100] shadow-2xl p-6">
         <button onclick="toggleMenu()" class="text-white text-3xl absolute top-4 right-4">&times;</button>
         <div class="mt-12 space-y-5 flex flex-col font-bold text-lg">
-            <a href="#" onclick="toggleMenu()">হোম</a>
-            <a href="#" onclick="openModal('aboutModal')">আমাদের সম্পর্কে</a>
-            <a href="#" onclick="openModal('teachersModal')">শিক্ষকমণ্ডলী</a>
-            <a href="#" onclick="openModal('admissionModal')">অনলাইন ভর্তি</a>
-            <a href="#" onclick="openModal('resultModal')">ফলাফল</a>
-            <a href="#" onclick="openModal('noticeModal')">নোটিশ</a>
-            <a href="#" onclick="openModal('galleryModal')">গ্যালারি</a>
+            <a href="#" onclick="toggleMenu()"><i class="fas fa-home mr-2"></i> হোম</a>
+            <a href="#" onclick="openModal('aboutModal')"><i class="fas fa-university mr-2"></i> আমাদের সম্পর্কে</a>
+            <a href="#" onclick="openModal('teachersModal')"><i class="fas fa-users mr-2"></i> শিক্ষকমণ্ডলী</a>
+            <a href="#" onclick="openModal('admissionModal')"><i class="fas fa-user-plus mr-2"></i> অনলাইন ভর্তি</a>
+            <a href="#" onclick="openModal('resultModal')"><i class="fas fa-file-invoice mr-2"></i> ফলাফল</a>
+            <a href="#" onclick="openModal('noticeModal')"><i class="fas fa-bullhorn mr-2"></i> নোটিশ</a>
+            <a href="tel:01735524083" class="text-yellow-400"><i class="fas fa-phone-alt mr-2"></i> সরাসরি কল</a>
         </div>
-    </div>
-
-    <div class="bg-green-800 text-white flex items-center py-1">
-        <span class="bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 ml-1 whitespace-nowrap">সর্বশেষ নোটিশ:</span>
-        <marquee class="text-xs">ভর্তি চলছে! নতুন ব্যাচে সীমিত আসনে শিক্ষার্থী নেওয়া হচ্ছে।</marquee>
     </div>
 
     <div class="w-full">
-        <img src="https://image2url.com/r2/default/images/1772025318652-12951592-8450-49c6-bd80-47cbc2f8faaa.jpg" class="w-full h-52 object-cover shadow-md">
+        <img src="https://image2url.com/r2/default/images/1772025318652-12951592-8450-49c6-bd80-47cbc2f8faaa.jpg" class="w-full h-52 object-cover">
     </div>
 
     <main class="p-4 bg-green-50">
-        <h2 class="text-center text-green-800 font-bold text-lg mb-6 border-b-2 border-green-200 pb-2 italic">প্রয়োজনীয় লিংক</h2>
         <div class="grid grid-cols-2 gap-4">
-            <div onclick="openModal('admissionModal')" class="bg-white p-5 rounded-xl shadow-sm border border-green-100 flex flex-col items-center cursor-pointer active:scale-95 transition text-center">
+            <div onclick="openModal('admissionModal')" class="bg-white p-5 rounded-xl shadow-sm border border-green-100 flex flex-col items-center cursor-pointer active:scale-95 transition">
                 <i class="fas fa-user-plus text-green-600 text-3xl mb-2"></i>
-                <span class="text-gray-700 font-bold text-[11px] uppercase tracking-tighter">অনলাইন ভর্তি</span>
+                <span class="text-gray-700 font-bold text-[11px] uppercase">অনলাইন ভর্তি</span>
             </div>
-            <div onclick="openModal('resultModal')" class="bg-white p-5 rounded-xl shadow-sm border border-green-100 flex flex-col items-center cursor-pointer active:scale-95 transition text-center">
+            <div onclick="openModal('resultModal')" class="bg-white p-5 rounded-xl shadow-sm border border-green-100 flex flex-col items-center cursor-pointer active:scale-95 transition">
                 <i class="fas fa-file-invoice text-green-600 text-3xl mb-2"></i>
-                <span class="text-gray-700 font-bold text-[11px] uppercase tracking-tighter">ফলাফল</span>
+                <span class="text-gray-700 font-bold text-[11px] uppercase">ফলাফল</span>
             </div>
-            <div onclick="openModal('teachersModal')" class="bg-white p-5 rounded-xl shadow-sm border border-green-100 flex flex-col items-center cursor-pointer active:scale-95 transition text-center">
+            <div onclick="openModal('teachersModal')" class="bg-white p-5 rounded-xl shadow-sm border border-green-100 flex flex-col items-center cursor-pointer active:scale-95 transition">
                 <i class="fas fa-users text-green-600 text-3xl mb-2"></i>
-                <span class="text-gray-700 font-bold text-[11px] uppercase tracking-tighter">শিক্ষকমণ্ডলী</span>
+                <span class="text-gray-700 font-bold text-[11px] uppercase">শিক্ষকমণ্ডলী</span>
             </div>
-            <div onclick="openModal('noticeModal')" class="bg-white p-5 rounded-xl shadow-sm border border-green-100 flex flex-col items-center cursor-pointer active:scale-95 transition text-center">
+            <div onclick="openModal('noticeModal')" class="bg-white p-5 rounded-xl shadow-sm border border-green-100 flex flex-col items-center cursor-pointer active:scale-95 transition">
                 <i class="fas fa-bullhorn text-green-600 text-3xl mb-2"></i>
-                <span class="text-gray-700 font-bold text-[11px] uppercase tracking-tighter">নোটিশ</span>
+                <span class="text-gray-700 font-bold text-[11px] uppercase">নোটিশ</span>
             </div>
-            <div onclick="openModal('galleryModal')" class="bg-white p-5 rounded-xl shadow-sm border border-green-100 flex flex-col items-center cursor-pointer active:scale-95 transition text-center">
+            <div onclick="openModal('galleryModal')" class="bg-white p-5 rounded-xl shadow-sm border border-green-100 flex flex-col items-center cursor-pointer active:scale-95 transition">
                 <i class="fas fa-images text-green-600 text-3xl mb-2"></i>
-                <span class="text-gray-700 font-bold text-[11px] uppercase tracking-tighter">গ্যালারি</span>
+                <span class="text-gray-700 font-bold text-[11px] uppercase">গ্যালারি</span>
             </div>
-            <div onclick="openModal('aboutModal')" class="bg-white p-5 rounded-xl shadow-sm border border-green-100 flex flex-col items-center cursor-pointer active:scale-95 transition text-center">
+            <div onclick="openModal('aboutModal')" class="bg-white p-5 rounded-xl shadow-sm border border-green-100 flex flex-col items-center cursor-pointer active:scale-95 transition">
                 <i class="fas fa-university text-green-600 text-3xl mb-2"></i>
-                <span class="text-gray-700 font-bold text-[11px] uppercase tracking-tighter">আমাদের সম্পর্কে</span>
+                <span class="text-gray-700 font-bold text-[11px] uppercase">আমাদের সম্পর্কে</span>
             </div>
         </div>
     </main>
 
+    <footer class="bg-green-950 text-white py-10 text-center px-4">
+        <h3 class="text-lg font-bold mb-4 uppercase tracking-widest">যোগাযোগ করুন</h3>
+        
+        <div class="flex justify-center gap-8 mb-6">
+            <a href="https://www.facebook.com/profile.php?id=100083163470474" target="_blank" class="bg-blue-600 h-12 w-12 flex items-center justify-center rounded-full text-2xl shadow-lg active:scale-90 transition">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="tel:01735524083" class="bg-yellow-500 h-12 w-12 flex items-center justify-center rounded-full text-2xl shadow-lg active:scale-90 transition text-black">
+                <i class="fas fa-phone-alt"></i>
+            </a>
+            <a href="https://wa.me/8801735524083" target="_blank" class="bg-green-500 h-12 w-12 flex items-center justify-center rounded-full text-2xl shadow-lg active:scale-90 transition">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+        </div>
+
+        <div class="space-y-3 text-sm">
+            <p class="px-4 leading-relaxed italic">
+                <i class="fas fa-map-marker-alt text-yellow-400 mr-2"></i>
+                শহীদ আসাদুল্লাহ আইডিয়াল হাসপাতাল ( সদর হসপিটালের উত্তর পাশে), মুন্সিপাড়া, দিনাজপুর
+            </p>
+            <p class="font-bold text-yellow-400">
+                <i class="fas fa-envelope mr-2"></i> snidp2022@gmail.com
+            </p>
+        </div>
+
+        <div class="mt-10 border-t border-green-800 pt-6 text-[10px] text-green-400">
+            © 2024 SUNRISE NURSING INSTITUTE. <br> Developed with ❤️ for Nursing Excellence.
+        </div>
+    </footer>
+
+    <div id="teachersModal" class="modal">
+        <div class="bg-white w-full max-w-sm rounded-lg relative p-4 max-h-[80vh] overflow-y-auto">
+            <button onclick="closeModal('teachersModal')" class="absolute top-2 right-4 text-3xl text-red-600">&times;</button>
+            <h3 class="text-green-700 font-bold text-center border-b pb-2 mb-4">শিক্ষকমণ্ডলী (৮ জন)</h3>
+            <div class="space-y-3">
+                <div class="flex items-center gap-3 border-b pb-2"> <div class="bg-green-100 h-8 w-8 rounded-full flex items-center justify-center text-xs font-bold">1</div> <div><h4 class="font-bold text-sm">ড. আব্দুর রহমান</h4><p class="text-[10px] text-green-600">অধ্যক্ষ</p></div> </div>
+                <div class="flex items-center gap-3 border-b pb-2"> <div class="bg-green-100 h-8 w-8 rounded-full flex items-center justify-center text-xs font-bold">2</div> <div><h4 class="font-bold text-sm">মোসাম্মৎ আয়েশা খাতুন</h4><p class="text-[10px] text-green-600">সিনিয়র ইনস্ট্রাক্টর</p></div> </div>
+                <div class="flex items-center gap-3 border-b pb-2"> <div class="bg-green-100 h-8 w-8 rounded-full flex items-center justify-center text-xs font-bold">3</div> <div><h4 class="font-bold text-sm">কামরুল ইসলাম</h4><p class="text-[10px] text-green-600">লেকচারার</p></div> </div>
+                <div class="flex items-center gap-3 border-b pb-2"> <div class="bg-green-100 h-8 w-8 rounded-full flex items-center justify-center text-xs font-bold">4</div> <div><h4 class="font-bold text-sm">জান্নাতুল ফেরদৌস</h4><p class="text-[10px] text-green-600">ইনস্ট্রাক্টর</p></div> </div>
+                <div class="flex items-center gap-3 border-b pb-2"> <div class="bg-green-100 h-8 w-8 rounded-full flex items-center justify-center text-xs font-bold">5</div> <div><h4 class="font-bold text-sm">শরিফুল ইসলাম</h4><p class="text-[10px] text-green-600">ক্লিনিক্যাল ইনস্ট্রাক্টর</p></div> </div>
+                <div class="flex items-center gap-3 border-b pb-2"> <div class="bg-green-100 h-8 w-8 rounded-full flex items-center justify-center text-xs font-bold">6</div> <div><h4 class="font-bold text-sm">শিক্ষক নাম ৬</h4><p class="text-[10px] text-green-600">লেকচারার</p></div> </div>
+                <div class="flex items-center gap-3 border-b pb-2"> <div class="bg-green-100 h-8 w-8 rounded-full flex items-center justify-center text-xs font-bold">7</div> <div><h4 class="font-bold text-sm">শিক্ষক নাম ৭</h4><p class="text-[10px] text-green-600">ইনস্ট্রাক্টর</p></div> </div>
+                <div class="flex items-center gap-3 border-b pb-2"> <div class="bg-green-100 h-8 w-8 rounded-full flex items-center justify-center text-xs font-bold">8</div> <div><h4 class="font-bold text-sm">শিক্ষক নাম ৮</h4><p class="text-[10px] text-green-600">ডেমনস্ট্রেটর</p></div> </div>
+            </div>
+        </div>
+    </div>
+
     <div id="admissionModal" class="modal">
-        <div class="bg-white w-full max-w-sm rounded-lg overflow-hidden relative p-6">
-            <button onclick="closeModal('admissionModal')" class="absolute top-2 right-4 text-2xl font-bold text-red-600">&times;</button>
-            <h3 class="text-green-700 font-bold text-lg mb-4 text-center border-b pb-2">অনলাইন ভর্তি ফরম</h3>
-            <form name="admission" method="POST" data-netlify="true" class="space-y-3">
+        <div class="bg-white w-full max-w-sm rounded-lg relative p-6">
+            <button onclick="closeModal('admissionModal')" class="absolute top-2 right-4 text-3xl text-red-600">&times;</button>
+            <h3 class="text-green-700 font-bold mb-4 text-center border-b pb-2">অনলাইন ভর্তি ফরম</h3>
+            <form name="admission" method="POST" data-netlify="true" class="space-y-4">
                 <input type="hidden" name="form-name" value="admission" />
-                <input type="text" name="student_name" placeholder="শিক্ষার্থীর নাম" required class="w-full p-2 border rounded-md text-sm outline-none">
-                <input type="number" name="mobile_number" placeholder="মোবাইল নম্বর" required class="w-full p-2 border rounded-md text-sm outline-none">
-                <select name="course" required class="w-full p-2 border rounded-md text-sm text-gray-600 outline-none">
-                    <option value="" disabled selected>কোর্স নির্বাচন করুন</option>
-                    <option value="Diploma in Nursing">ডিপ্লোমা ইন নার্সিং</option>
-                    <option value="BSc in Nursing">বিএসসি ইন নার্সিং</option>
+                <input type="text" name="student_name" placeholder="শিক্ষার্থীর নাম" required class="w-full p-2 border rounded outline-none">
+                <input type="number" name="mobile" placeholder="মোবাইল নম্বর" required class="w-full p-2 border rounded outline-none">
+                <select name="course" required class="w-full p-2 border rounded outline-none text-gray-600">
+                    <option value="" disabled selected>কোর্স বেছে নিন</option>
+                    <option>ডিপ্লোমা ইন নার্সিং</option>
+                    <option>বিএসসি ইন নার্সিং</option>
                 </select>
-                <button type="submit" class="w-full bg-green-600 text-white py-2 rounded-md font-bold">আবেদন জমা দিন</button>
+                <button type="submit" class="w-full bg-green-600 text-white py-2 rounded font-bold">জমা দিন</button>
             </form>
         </div>
     </div>
 
     <div id="resultModal" class="modal">
-        <div class="bg-white w-full max-w-sm rounded-lg overflow-hidden relative p-6">
-            <button onclick="closeModal('resultModal')" class="absolute top-2 right-4 text-2xl font-bold text-red-600">&times;</button>
-            <h3 class="text-green-700 font-bold text-lg mb-4 text-center border-b pb-2">ফলাফল অনুসন্ধান</h3>
-            <form class="space-y-3">
-                <input type="number" placeholder="রোল নম্বর লিখুন" required class="w-full p-2 border rounded-md text-sm outline-none">
-                <select required class="w-full p-2 border rounded-md text-sm text-gray-600 outline-none">
-                    <option value="" disabled selected>শিক্ষাবর্ষ নির্বাচন করুন</option>
-                    <option>২০২২-২৩</option>
-                    <option>২০২৩-২৪</option>
-                    <option>২০২৪-২৫</option>
-                </select>
-                <button type="button" onclick="alert('ফলাফল এখনো প্রকাশ করা হয়নি')" class="w-full bg-blue-600 text-white py-2 rounded-md font-bold">ফলাফল দেখুন</button>
-            </form>
-        </div>
-    </div>
-
-    <div id="teachersModal" class="modal">
-        <div class="bg-white w-full max-w-sm rounded-lg overflow-hidden relative p-4 max-h-[85vh] overflow-y-auto">
-            <button onclick="closeModal('teachersModal')" class="absolute top-2 right-4 text-2xl font-bold text-red-600">&times;</button>
-            <h3 class="text-green-700 font-bold text-lg mb-4 text-center border-b pb-2">আমাদের দক্ষ শিক্ষকমণ্ডলী</h3>
-            <div class="space-y-4">
-                <div class="flex items-center gap-4 border-b pb-3"><div class="bg-green-100 h-10 w-10 rounded-full flex items-center justify-center text-green-700 font-bold">S1</div><div><h4 class="font-bold text-gray-800 text-sm">ড. আব্দুর রহমান</h4><p class="text-[10px] text-green-600">অধ্যক্ষ</p></div></div>
-                <div class="flex items-center gap-4 border-b pb-3"><div class="bg-green-100 h-10 w-10 rounded-full flex items-center justify-center text-green-700 font-bold">S2</div><div><h4 class="font-bold text-gray-800 text-sm">মোসাম্মৎ আয়েশা খাতুন</h4><p class="text-[10px] text-green-600">সিনিয়র ইনস্ট্রাক্টর</p></div></div>
-                <div class="flex items-center gap-4 border-b pb-3"><div class="bg-green-100 h-10 w-10 rounded-full flex items-center justify-center text-green-700 font-bold">S3</div><div><h4 class="font-bold text-gray-800 text-sm">কামরুল ইসলাম</h4><p class="text-[10px] text-green-600">লেকচারার</p></div></div>
-                <div class="flex items-center gap-4 border-b pb-3"><div class="bg-green-100 h-10 w-10 rounded-full flex items-center justify-center text-green-700 font-bold">S4</div><div><h4 class="font-bold text-gray-800 text-sm">জান্নাতুল ফেরদৌস</h4><p class="text-[10px] text-green-600">ইনস্ট্রাক্টর</p></div></div>
-                <div class="flex items-center gap-4 border-b pb-3"><div class="bg-green-100 h-10 w-10 rounded-full flex items-center justify-center text-green-700 font-bold">S5</div><div><h4 class="font-bold text-gray-800 text-sm">শরিফুল ইসলাম</h4><p class="text-[10px] text-green-600">ক্লিনিক্যাল ইনস্ট্রাক্টর</p></div></div>
-                <div class="flex items-center gap-4 border-b pb-3"><div class="bg-green-100 h-10 w-10 rounded-full flex items-center justify-center text-green-700 font-bold">S6</div><div><h4 class="font-bold text-gray-800 text-sm">শিক্ষক নাম ৬</h4><p class="text-[10px] text-green-600">লেকচারার</p></div></div>
-                <div class="flex items-center gap-4 border-b pb-3"><div class="bg-green-100 h-10 w-10 rounded-full flex items-center justify-center text-green-700 font-bold">S7</div><div><h4 class="font-bold text-gray-800 text-sm">শিক্ষক নাম ৭</h4><p class="text-[10px] text-green-600">ইনস্ট্রাক্টর</p></div></div>
-                <div class="flex items-center gap-4 border-b pb-3"><div class="bg-green-100 h-10 w-10 rounded-full flex items-center justify-center text-green-700 font-bold">S8</div><div><h4 class="font-bold text-gray-800 text-sm">শিক্ষক নাম ৮</h4><p class="text-[10px] text-green-600">ডেমনস্ট্রেটর</p></div></div>
-            </div>
+        <div class="bg-white w-full max-w-sm rounded-lg relative p-6">
+            <button onclick="closeModal('resultModal')" class="absolute top-2 right-4 text-3xl text-red-600">&times;</button>
+            <h3 class="text-green-700 font-bold mb-4 text-center border-b pb-2">ফলাফল অনুসন্ধান</h3>
+            <input type="number" placeholder="রোল নম্বর" class="w-full p-2 border rounded mb-3 outline-none">
+            <select class="w-full p-2 border rounded mb-4 outline-none">
+                <option>সেশন বেছে নিন</option>
+                <option>২০২২-২৩</option>
+                <option>২০২৩-২৪</option>
+            </select>
+            <button onclick="alert('ফলাফল এখনো প্রস্তুত নয়')" class="w-full bg-blue-600 text-white py-2 rounded font-bold">ফলাফল দেখুন</button>
         </div>
     </div>
 
     <div id="galleryModal" class="modal">
-        <div class="bg-white w-full max-w-sm rounded-lg overflow-hidden relative p-6">
-            <button onclick="closeModal('galleryModal')" class="absolute top-2 right-4 text-2xl font-bold text-red-600">&times;</button>
-            <h3 class="text-green-700 font-bold text-lg mb-4 text-center border-b pb-2">ইনস্টিটিউট গ্যালারি</h3>
-            <div class="grid grid-cols-2 gap-3 max-h-[60vh] overflow-y-auto">
-                <img src="https://image2url.com/r2/default/images/1772025318652-12951592-8450-49c6-bd80-47cbc2f8faaa.jpg" class="gallery-img shadow-sm border" alt="গ্যালারি ১">
-                <img src="https://image2url.com/r2/default/images/1772025318652-12951592-8450-49c6-bd80-47cbc2f8faaa.jpg" class="gallery-img shadow-sm border" alt="গ্যালারি ২">
-                <img src="https://via.placeholder.com/400x300?text=Campus+View" class="gallery-img shadow-sm border" alt="গ্যালারি ৩">
-                <img src="https://via.placeholder.com/400x300?text=Lab+Class" class="gallery-img shadow-sm border" alt="গ্যালারি ৪">
+        <div class="bg-white w-full max-w-sm rounded-lg relative p-6">
+            <button onclick="closeModal('galleryModal')" class="absolute top-2 right-4 text-3xl text-red-600">&times;</button>
+            <h3 class="text-green-700 font-bold mb-4 text-center border-b pb-2">গ্যালারি</h3>
+            <div class="grid grid-cols-2 gap-2">
+                <img src="https://image2url.com/r2/default/images/1772025318652-12951592-8450-49c6-bd80-47cbc2f8faaa.jpg" class="gallery-img">
+                <div class="bg-gray-100 flex items-center justify-center text-[10px] text-gray-400 rounded">ছবি নেই</div>
             </div>
         </div>
     </div>
 
-    <div id="aboutModal" class="modal"><div class="bg-white w-full max-w-sm rounded-lg relative p-6"><button onclick="closeModal('aboutModal')" class="absolute top-2 right-4 text-2xl font-bold text-red-600">&times;</button><h3 class="text-green-700 font-bold text-lg mb-4 text-center border-b pb-2">আমাদের সম্পর্কে</h3><p class="text-sm text-gray-700 text-justify">সানরাইজ নার্সিং ইন্সটিটিউট দিনাজপুরের একটি অগ্রগামী শিক্ষা প্রতিষ্ঠান। আমাদের লক্ষ্য হলো দক্ষ নার্স তৈরি করা।</p></div></div>
-    <div id="noticeModal" class="modal"><div class="bg-white w-full max-w-sm rounded-lg relative p-6"><button onclick="closeModal('noticeModal')" class="absolute top-2 right-4 text-2xl font-bold text-red-600">&times;</button><h3 class="text-green-700 font-bold text-lg mb-4 text-center border-b pb-2">নোটিশ বোর্ড</h3><p class="text-sm text-gray-700 italic bg-yellow-50 p-3 border border-yellow-200 rounded">ভর্তি চলছে! নতুন ব্যাচে সীমিত আসনে শিক্ষার্থী নেওয়া হচ্ছে।</p></div></div>
-
-    <footer class="bg-green-900 text-white mt-5 py-8 text-center px-4">
-        <h3 class="text-lg font-bold mb-3">যোগাযোগ</h3>
-        <p class="text-xs leading-relaxed mb-2"><i class="fas fa-map-marker-alt text-yellow-400 mr-1"></i> শহীদ আসাদুল্লাহ আইডিয়াল হাসপাতাল, মুন্সিপাড়া, দিনাজপুর</p>
-        <p class="text-xs font-bold italic"><i class="fas fa-phone-alt text-yellow-400 mr-1"></i> ০১৭৩৫-৫২৪০৮৩</p>
-        <div class="mt-8 border-t border-green-800 pt-4 text-[10px] text-green-300">© 2024 SUNRISE NURSING INSTITUTE</div>
-    </footer>
+    <div id="aboutModal" class="modal"><div class="bg-white w-full max-w-sm rounded-lg relative p-6"><button onclick="closeModal('aboutModal')" class="absolute top-2 right-4 text-3xl text-red-600">&times;</button><h3 class="text-green-700 font-bold mb-4 text-center border-b pb-2">আমাদের সম্পর্কে</h3><p class="text-sm text-gray-600 text-justify">সানরাইজ নার্সিং ইন্সটিটিউট দিনাজপুরের একটি বিশ্বস্ত প্রতিষ্ঠান। আমাদের দক্ষ শিক্ষক ও আধুনিক ল্যাব শিক্ষার্থীদের উজ্জ্বল ভবিষ্যৎ নিশ্চিত করে।</p></div></div>
+    <div id="noticeModal" class="modal"><div class="bg-white w-full max-w-sm rounded-lg relative p-6"><button onclick="closeModal('noticeModal')" class="absolute top-2 right-4 text-3xl text-red-600">&times;</button><h3 class="text-green-700 font-bold mb-4 text-center border-b pb-2">নোটিশ</h3><p class="text-sm italic">২০২৪ শিক্ষাবর্ষে ভর্তি চলছে। আজই যোগাযোগ করুন।</p></div></div>
 
     <script>
         function toggleMenu() { document.getElementById('sidebar').classList.toggle('open'); }
