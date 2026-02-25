@@ -3,92 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SUNRISE NURSING INSTITUTE</title>
+    <title>সানরাইজ নার্সিং ইন্সটিটিউট | Sunrise Nursing Institute</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap');
-        body { font-family: 'Hind Siliguri', sans-serif; background-color: #f0fdf4; overflow-x: hidden; }
-        
-        /* Sidebar Styles */
-        #sidebar {
-            transition: transform 0.3s ease-in-out;
-            transform: translateX(100%); /* শুরুতে ডান দিকে লুকিয়ে থাকবে */
-        }
-        #sidebar.open {
-            transform: translateX(0); /* ক্লিক করলে সামনে আসবে */
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Hind Siliguri', sans-serif; background-color: #f0fdf4; }
+        .marquee-bg { background: #166534; color: white; padding: 8px 0; }
+        .slider-img { aspect-ratio: 16/9; object-fit: cover; width: 100%; }
     </style>
 </head>
 <body>
 
-    <header class="bg-white p-3 shadow-sm sticky top-0 z-50 flex justify-between items-center">
-        <div class="flex items-center gap-2">
-            <img src="https://image2url.com/r2/default/images/1772025076092-d9a4b77c-81a1-4224-8742-ce1533712806.jpg" class="h-10 w-10">
-            <div>
-                <h1 class="text-green-700 font-bold text-sm uppercase">SUNRISE NURSING INSTITUTE</h1>
-                <p class="text-[10px] text-gray-500">DINAJPUR</p>
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <img src="https://image2url.com/r2/default/images/1772025076092-d9a4b77c-81a1-4224-8742-ce1533712806.jpg" alt="Logo" class="h-12 w-12 rounded-full border-2 border-green-600">
+                <div>
+                    <h1 class="text-green-800 font-bold text-lg leading-tight">SUNRISE NURSING INSTITUTE</h1>
+                    <p class="text-xs text-gray-600 italic">DINAJPUR</p>
+                </div>
             </div>
+            <button class="text-green-700 text-2xl md:hidden">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
-        <button onclick="toggleMenu()" class="text-green-700 text-2xl focus:outline-none">
-            <i class="fas fa-bars"></i>
-        </button>
     </header>
 
-    <div id="sidebar" class="fixed top-0 right-0 h-full w-64 bg-green-800 text-white z-[100] shadow-2xl p-6">
-        <button onclick="toggleMenu()" class="text-white text-3xl absolute top-4 right-4">&times;</button>
-        <div class="mt-10 space-y-6 flex flex-col font-bold text-lg">
-            <a href="#" class="hover:text-yellow-400 border-b border-green-700 pb-2">হোম</a>
-            <a href="#" class="hover:text-yellow-400 border-b border-green-700 pb-2">নোটিশ</a>
-            <a href="#" class="hover:text-yellow-400 border-b border-green-700 pb-2">ভর্তি তথ্য</a>
-            <a href="#" class="hover:text-yellow-400 border-b border-green-700 pb-2">ফলাফল</a>
-            <a href="#" class="hover:text-yellow-400 border-b border-green-700 pb-2">শিক্ষকমণ্ডলী</a>
-            <a href="#" class="hover:text-yellow-400 border-b border-green-700 pb-2">যোগাযোগ</a>
+    <nav class="bg-green-700 text-white hidden md:block">
+        <div class="container mx-auto px-4 flex gap-6 py-2 text-sm uppercase font-medium">
+            <a href="#" class="hover:underline">হোম</a>
+            <a href="#" class="hover:underline">নোটিশ</a>
+            <a href="#" class="hover:underline">ভর্তি</a>
+            <a href="#" class="hover:underline">রেজাল্ট</a>
+            <a href="#" class="hover:underline">শিক্ষকমণ্ডলী</a>
+            <a href="#" class="hover:underline">যোগাযোগ</a>
+        </div>
+    </nav>
+
+    <div class="marquee-bg">
+        <div class="container mx-auto px-2 flex">
+            <span class="bg-yellow-400 text-black px-2 py-1 text-xs font-bold mr-2 whitespace-nowrap">সর্বশেষ নোটিশ:</span>
+            <marquee class="text-sm">
+                আগামী ১০ তারিখ থেকে পরীক্ষা শুরু হবে। *** আগামী ২০ তারিখ খাওয়ার আয়োজন আছে সবাই উপস্থিত থাকবা।
+            </marquee>
         </div>
     </div>
 
-    <div id="overlay" onclick="toggleMenu()" class="fixed inset-0 bg-black opacity-50 z-[90] hidden"></div>
+    <section class="relative overflow-hidden bg-gray-200">
+        <div class="flex transition-transform duration-500 overflow-x-auto snap-x snap-mandatory scrollbar-hide" id="slider">
+            <img src="https://image2url.com/r2/default/images/1772025318652-12951592-8450-49c6-bd80-47cbc2f8faaa.jpg" class="slider-img snap-center shrink-0" alt="Slider 1">
+            <img src="https://image2url.com/r2/default/images/1772025306246-b913d3a1-19d9-4924-b2bf-52b75f72584e.jpg" class="slider-img snap-center shrink-0" alt="Slider 2">
+            <img src="https://image2url.com/r2/default/images/1772025442300-925d078e-05fe-45f4-84a9-3dfbb90129f1.png" class="slider-img snap-center shrink-0" alt="Slider 3">
+            <img src="https://image2url.com/r2/default/images/1772025379257-8f659f91-df7e-4de0-bfd0-d120a4ecb215.jpg" class="slider-img snap-center shrink-0" alt="Slider 4">
+        </div>
+    </section>
 
-    <div class="bg-green-800 text-white flex items-center py-1">
-        <span class="bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 ml-1 whitespace-nowrap">সর্বশেষ নোটিশ:</span>
-        <marquee class="text-xs">আগামী ১০ তারিখ থেকে পরীক্ষা শুরু হবে। *** আগামী ২০ তারিখ খাওয়ার আয়োজন আছে।</marquee>
-    </div>
-
-    <div class="w-full">
-        <img src="https://image2url.com/r2/default/images/1772025318652-12951592-8450-49c6-bd80-47cbc2f8faaa.jpg" class="w-full h-52 object-cover">
-    </div>
-
-    <main class="p-4">
-        <h2 class="text-center text-green-800 font-bold text-lg mb-6 underline decoration-green-300 underline-offset-8">প্রয়োজনীয় লিংক</h2>
-        <div class="grid grid-cols-2 gap-4 text-center">
-            <div class="bg-white p-5 rounded-xl shadow-sm border border-green-50">
+    <main class="container mx-auto px-4 py-8">
+        <h2 class="text-center text-green-800 font-bold text-xl mb-6 border-b-2 border-green-200 pb-2">প্রয়োজনীয় লিংক</h2>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+            <a href="#" class="flex flex-col items-center p-4 bg-white border border-green-100 rounded-xl shadow-sm hover:shadow-md transition">
                 <i class="fas fa-user-plus text-green-600 text-3xl mb-2"></i>
-                <p class="text-gray-700 font-bold text-sm">অনলাইন ভর্তি</p>
-            </div>
-            <div class="bg-white p-5 rounded-xl shadow-sm border border-green-50">
+                <span class="text-gray-800 font-medium">অনলাইন ভর্তি</span>
+            </a>
+            <a href="#" class="flex flex-col items-center p-4 bg-white border border-green-100 rounded-xl shadow-sm hover:shadow-md transition">
                 <i class="fas fa-file-invoice text-green-600 text-3xl mb-2"></i>
-                <p class="text-gray-700 font-bold text-sm">ফলাফল</p>
-            </div>
-            <div class="bg-white p-5 rounded-xl shadow-sm border border-green-50">
+                <span class="text-gray-800 font-medium">ফলাফল</span>
+            </a>
+            <a href="#" class="flex flex-col items-center p-4 bg-white border border-green-100 rounded-xl shadow-sm hover:shadow-md transition">
                 <i class="fas fa-calendar-alt text-green-600 text-3xl mb-2"></i>
-                <p class="text-gray-700 font-bold text-sm">ক্লাস রুটিন</p>
-            </div>
-            <div class="bg-white p-5 rounded-xl shadow-sm border border-green-50">
+                <span class="text-gray-800 font-medium">ক্লাস রুটিন</span>
+            </a>
+            <a href="#" class="flex flex-col items-center p-4 bg-white border border-green-100 rounded-xl shadow-sm hover:shadow-md transition">
                 <i class="fas fa-book text-green-600 text-3xl mb-2"></i>
-                <p class="text-gray-700 font-bold text-sm">সিলেবাস</p>
-            </div>
+                <span class="text-gray-800 font-medium">সিলেবাস</span>
+            </a>
+            <a href="#" class="flex flex-col items-center p-4 bg-white border border-green-100 rounded-xl shadow-sm hover:shadow-md transition">
+                <i class="fas fa-bullhorn text-green-600 text-3xl mb-2"></i>
+                <span class="text-gray-800 font-medium">নোটিশ</span>
+            </a>
+            <a href="#" class="flex flex-col items-center p-4 bg-white border border-green-100 rounded-xl shadow-sm hover:shadow-md transition">
+                <i class="fas fa-users text-green-600 text-3xl mb-2"></i>
+                <span class="text-gray-800 font-medium">শিক্ষকমণ্ডলী</span>
+            </a>
         </div>
     </main>
 
-    <script>
-        // মেনু খোলা এবং বন্ধ করার ফাংশন
-        function toggleMenu() {
-            const sidebar = document.getElementById('sidebar');
-            const overlay = document.getElementById('overlay');
-            
-            sidebar.classList.toggle('open');
-            overlay.classList.toggle('hidden');
-        }
-    </script>
+    <footer class="bg-green-900 text-white mt-10 py-8">
+        <div class="container mx-auto px-4 text-center">
+            <h3 class="text-lg font-bold mb-4">যোগাযোগ</h3>
+            <p class="text-sm mb-2"><i class="fas fa-map-marker-alt mr-2 text-yellow-400"></i>শহীদ আসাদুল্লাহ আইডিয়াল প্রাইভেট লিঃ হসপিটাল ( সদর হসপিটালের উত্তর পাশে) মুন্সিপাড়া, দিনাজপুর</p>
+            <p class="text-sm mb-2"><i class="fas fa-phone-alt mr-2 text-yellow-400"></i>০১৭৩৫-৫২৪০৮৩</p>
+            <p class="text-xs mt-6 text-green-300">© ২০২৬ সানরাইজ নার্সিং ইন্সটিটিউট। Devlop by Emon Islam</p>
+        </div>
+    </footer>
+
 </body>
 </html>
